@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /ver-video
+Disallow: /agendar
+Disallow: /cita-confirmada
+Disallow: /sin-espacio
+Disallow: /pago
+Disallow: /inscripcion-confirmada

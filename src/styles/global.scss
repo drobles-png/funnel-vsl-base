@@ -1,0 +1,241 @@
+// Estilos globales (emiten CSS). Los tokens llegan inyectados desde tokens.scss.
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: $surface;
+  color: $ink;
+  font-family: $font-sans;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: $primary;
+}
+
+img {
+  max-width: 100%;
+}
+
+:focus-visible {
+  @include focus-ring;
+}
+
+.wrap {
+  width: 100%;
+  max-width: $content-width;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.eyebrow {
+  @include eyebrow;
+  color: $primary;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// ── Botones ───────────────────────────────────────────────────────────────────
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 12px 22px;
+  border: 1px solid transparent;
+  border-radius: $radius-md;
+  background: $primary;
+  color: $on-primary;
+  font: 500 1rem/1.2 $font-sans;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.15s ease;
+  touch-action: manipulation;
+
+  &:hover:not(:disabled) {
+    background: $primary-hover;
+  }
+  &:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+
+  &--lg {
+    min-height: 56px;
+    padding: 16px 28px;
+    font-size: 1.05rem;
+  }
+  &--block {
+    width: 100%;
+  }
+  &--ghost {
+    background: transparent;
+    border-color: $line;
+    color: $ink;
+
+    &:hover:not(:disabled) {
+      background: $primary-soft;
+    }
+  }
+}
+
+// ── Formularios ───────────────────────────────────────────────────────────────
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  label {
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 14px;
+    border: 1px solid $line;
+    border-radius: $radius-sm;
+    background: $raised;
+    color: $ink;
+    font: 400 16px/1.4 $font-sans; // 16px: evita el zoom del input en iOS
+
+    &:focus {
+      outline: none;
+      border-color: $primary;
+      box-shadow: 0 0 0 3px rgba($primary, 0.18);
+    }
+  }
+
+  &.has-error {
+    input,
+    select,
+    textarea {
+      border-color: $error;
+    }
+  }
+
+  &__error {
+    color: $error;
+    font-size: 0.8rem;
+  }
+}
+
+// ── Modales (registro y cualificación) ────────────────────────────────────────
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba($surface-dark, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  overscroll-behavior: contain;
+}
+
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+  padding: 40px 32px 32px;
+  border-radius: $radius-lg;
+  background: $raised;
+  box-shadow: $shadow-modal;
+
+  @media (max-width: 560px) {
+    padding: 44px 20px 24px;
+  }
+
+  &__close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid $line;
+    border-radius: 50%;
+    background: $surface;
+    color: $ink-muted;
+    cursor: pointer;
+  }
+
+  &__title {
+    margin: 8px 0 8px;
+    font-size: clamp(1.5rem, 5vw, 1.9rem);
+  }
+
+  &__sub {
+    margin-bottom: 24px;
+    color: $ink-muted;
+    font-size: 0.95rem;
+  }
+}
+
+.modal-fade-enter-active,
+.modal-fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+.modal-fade-enter-from,
+.modal-fade-leave-to {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

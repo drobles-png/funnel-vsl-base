@@ -1,0 +1,24 @@
+node_modules
+dist
+dist-ssr
+coverage
+*.log
+*.tsbuildinfo
+.DS_Store
+
+# Secretos y entorno (el .env.example sí se versiona)
+.env
+.env*
+!.env.example
+*.local
+.vercel
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea
+
+# Salidas del e2e y caches locales
+e2e_out/
+.impeccable/
+node-compile-cache/

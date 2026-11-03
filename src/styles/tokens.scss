@@ -1,0 +1,47 @@
+// Tokens de marca. Este archivo se inyecta en cada <style lang="scss"> (vite.config.ts):
+// SOLO variables y mixins aquí (nada que emita CSS). Lo que emite CSS va en global.scss.
+// Para un cliente nuevo: cambiar los colores de "Marca" y la familia tipográfica.
+
+// ── Marca (neutros por defecto: reemplazar con los del cliente) ───────────────
+$primary: #0057ff; // CTAs, enlaces, acentos
+$primary-hover: #0046cc;
+$on-primary: #ffffff; // texto sobre $primary (contraste 4.5:1 mínimo)
+$primary-soft: #e6eeff; // fondos de chips y opciones seleccionadas
+
+// ── Neutros ───────────────────────────────────────────────────────────────────
+$surface: #f6f7f9; // fondo de página
+$raised: #ffffff; // tarjetas, modales
+$surface-dark: #07090e; // secciones oscuras (hero de cierre, footer)
+$line: #dce0e7; // bordes de 1px
+$ink: #07090e; // texto principal
+$ink-muted: #576071; // texto secundario
+$ink-on-dark: #f2f4f8;
+$ink-on-dark-muted: #a3abba;
+
+// ── Estados ───────────────────────────────────────────────────────────────────
+$success: #0f8a4b;
+$error: #d1142a;
+
+// ── Tipografía (se carga en index.html desde Google Fonts) ────────────────────
+$font-sans: 'Geist', 'Inter', system-ui, sans-serif;
+$font-mono: 'Geist Mono', ui-monospace, monospace;
+
+// ── Forma ─────────────────────────────────────────────────────────────────────
+$radius-sm: 6px;
+$radius-md: 12px;
+$radius-lg: 20px;
+$shadow-modal: 0 24px 64px rgba(7, 9, 14, 0.22);
+$content-width: 1080px;
+
+@mixin eyebrow {
+  font-family: $font-mono;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@mixin focus-ring {
+  outline: 2px solid $primary;
+  outline-offset: 2px;
+}
