@@ -1,0 +1,19 @@
+[
+  {"goto": "/?fbclid=TEST_e2e&utm_source=facebook&utm_medium=paid&utm_campaign=TEST-e2e&utm_content=anuncio-test"},
+  {"click": "[data-cta=registro]"},
+  {"fill": {"[data-field=nombre]": "Test Bakano", "[data-field=apellido]": "Prueba Califica", "[data-field=email]": "prueba.califica@bakano-test.com", "[data-field=phone]": "0991112233"}},
+  {"click": "form [type=submit]"},
+  {"wait_url": "**/ver-video"},
+  {"shot": "ver-video"},
+  {"click": "[data-cta=calificar]"},
+  {"click": "label:has(input[value=perfil_a])"},
+  {"click": "label:has(input[value=empezando])"},
+  {"click": "label:has(input[value=tengo_capital])"},
+  {"fill": {"[data-field=objetivo]": "Quiero empezar este mes con mis primeros clientes y necesito saber cuánto invertir"}},
+  {"click": "[data-field=consent]"},
+  {"click": "form [type=submit]"},
+  {"wait_url": "**/agendar"},
+  {"booking_complete": true},
+  {"wait_url": "**/cita-confirmada"},
+  {"shot": "final"}
+]
